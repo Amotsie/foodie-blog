@@ -1,0 +1,2 @@
+insert into person(fname, lname, dob) values('Jack', 'Miller', parsedatetime('06-11-1962', 'dd-MM-yyyy'));
+insert into person(fname, lname, dob) values('Stephanie', 'Wiley', parsedatetime('10-04-1974', 'dd-MM-yyyy'));
