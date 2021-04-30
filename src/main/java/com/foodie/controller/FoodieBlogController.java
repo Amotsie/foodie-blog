@@ -14,4 +14,6 @@ public class FoodieBlogController {
 		ModelAndView mv = new ModelAndView("welcome-page");
 		return mv;
 	}
+	
+	
 }
