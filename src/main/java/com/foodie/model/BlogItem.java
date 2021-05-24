@@ -2,6 +2,7 @@ package com.foodie.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.*;
@@ -12,11 +13,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "blog")
-public class BlogModel {
+public class BlogItem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,23 +27,23 @@ public class BlogModel {
 	@Size(min = 5, max = 100)
 	private String title;
 	
-	@Min(value = 20)
+	@Length(min = 20)
 	private String body;
 	
 	@NotBlank
 	private String category;
 	
-	@NotBlank
+	@NotNull
 	private int calories;
 	
 	@Past
 	@NotNull
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private LocalDate publishDate;
+	private LocalDate publishdate;
 	
 	@NotEmpty
 	@Column(name = "tags")
-	private ArrayList<String> tags;
+	private String[] tags;
 
 	public long getId() {
 		return id;
@@ -83,20 +85,29 @@ public class BlogModel {
 		this.calories = calories;
 	}
 
-	public LocalDate getPublishDate() {
-		return publishDate;
+	public LocalDate getPublishdate() {
+		return publishdate;
 	}
 
-	public void setPublishDate(LocalDate publishDate) {
-		this.publishDate = publishDate;
+	public void setPublishdate(LocalDate publishdate) {
+		this.publishdate = publishdate;
 	}
 
-	public ArrayList<String> getTags() {
-		return tags;
+	public List<String> getTags() {
+		return Arrays.asList(tags);
 	}
 
-	public void setTags(ArrayList<String> tags) {
-		this.tags = tags;
+	public void setTags(List<String> tags) {
+		String[] arr = new String[tags.size()];
+        arr = tags.toArray(arr);
+		this.tags = arr;
 	}
+
+	@Override
+	public String toString() {
+		return "BlogItem [id=" + id + ", title=" + title + ", body=" + body + ", category=" + category + ", calories="
+				+ calories + ", publishdate=" + publishdate + ", tags=" + Arrays.toString(tags) + "]";
+	}	
+	
 
 }

@@ -3,6 +3,6 @@ CREATE TABLE blog(id identity primary key,
 	body CLOB,
 	category varchar(50),
 	calories int,
-	publishDate date, 
-	tags ARRAY);
+	publishdate date, 
+	tags varchar(255));
 

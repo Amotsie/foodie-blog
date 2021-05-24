@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.foodie.dao.BlogRepository;
-import com.foodie.model.BlogModel;
+import com.foodie.model.BlogItem;
 
 @Service
 public class FoodieService {
@@ -16,22 +16,22 @@ public class FoodieService {
 	
 	
 	//Create
-	public void createPost(BlogModel post) {
+	public void createPost(BlogItem post) {
 		blogRepo.save(post);
 	}
 	
 	
 	//Read
-	public List<BlogModel> findAllPosts(){
+	public List<BlogItem> findAllPosts(){
 		return blogRepo.findAll();
 	}
 	
-	public BlogModel findPostByID(long id) {
+	public BlogItem findPostByID(long id) {
 		return blogRepo.getOne(id);
 	}
 	
 	//Update
-	public void updatePost(BlogModel post) {
+	public void updatePost(BlogItem post) {
 		blogRepo.save(post);
 	}
 	
