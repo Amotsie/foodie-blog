@@ -17,7 +17,7 @@
 		<div class="container">
 			<nav>
 				<p>Foodie</p>
-				<a href="#">+New Post</a>
+				<a href="/create"><button>+New Post</button></a>
 			</nav>
 		</div>
 	</header>

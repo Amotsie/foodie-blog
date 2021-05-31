@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
@@ -34,15 +35,16 @@ public class BlogItem {
 	private String category;
 	
 	@NotNull
-	private int calories;
+	@Min(value = 50)
+	private Integer calories;
 	
-	@Past
+	@PastOrPresent
 	@NotNull
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate publishdate;
 	
-	@NotEmpty
 	@Column(name = "tags")
+	@NotEmpty
 	private String[] tags;
 
 	public long getId() {
@@ -77,11 +79,11 @@ public class BlogItem {
 		this.category = category;
 	}
 
-	public int getCalories() {
+	public Integer getCalories() {
 		return calories;
 	}
 
-	public void setCalories(int calories) {
+	public void setCalories(Integer calories) {
 		this.calories = calories;
 	}
 
@@ -92,15 +94,29 @@ public class BlogItem {
 	public void setPublishdate(LocalDate publishdate) {
 		this.publishdate = publishdate;
 	}
-
-	public List<String> getTags() {
-		return Arrays.asList(tags);
+	
+	public String[] getTags() {
+		return tags;
 	}
 
-	public void setTags(List<String> tags) {
-		String[] arr = new String[tags.size()];
-        arr = tags.toArray(arr);
-		this.tags = arr;
+	
+//	public List<String> getTags() {
+//		if(tags.length<1 || tags == null) {
+//			List<String> list = new ArrayList<>();
+//			return list;
+//		}
+//			
+//		return Arrays.asList(tags);
+//	}
+
+//	public void setTags(List<String> tags) {
+//		String[] arr = new String[tags.size()];
+//        arr = tags.toArray(arr);
+//		this.tags = arr;
+//	}
+
+	public void setTags(String[] tags) {
+		this.tags = tags;
 	}
 
 	@Override
