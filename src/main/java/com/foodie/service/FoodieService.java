@@ -2,44 +2,42 @@ package com.foodie.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.foodie.model.Model;
-import com.foodie.repository.FoodRepository;
+import com.foodie.dao.BlogRepository;
+import com.foodie.model.BlogItem;
 
 @Service
-@Transactional
 public class FoodieService {
-
+	
 	@Autowired
-	FoodRepository fRepository;
+	BlogRepository blogRepo;
 	
-	public List<Model> findAllPost() {
-		return fRepository.findAllPost();
-	}
-
-
-	public List<Model> findByHashTag(String tag) {
-		return fRepository.findByHashTag(tag);
-	}
-
 	
-	public Model findBytitle(String title) {
-		return fRepository.findBytitle(title);
+	//Create
+	public void createPost(BlogItem post) {
+		blogRepo.save(post);
 	}
-
 	
-	public void deleteById(long id) {
-		fRepository.deleteById(id);;
-	}
-
 	
-	public void createPost(Model model) {
-		fRepository.createPost(model);
-		
+	//Read
+	public List<BlogItem> findAllPosts(){
+		return blogRepo.findAll();
 	}
-
+	
+	public BlogItem findPostByID(long id) {
+		return blogRepo.getOne(id);
+	}
+	
+	//Update
+	public void updatePost(BlogItem post) {
+		blogRepo.save(post);
+	}
+	
+	//Delete
+	public void deletePost(long id) {
+		blogRepo.deleteById(id);
+	}
+	
 }
