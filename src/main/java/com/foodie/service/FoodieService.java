@@ -39,5 +39,10 @@ public class FoodieService {
 	public void deletePost(long id) {
 		blogRepo.deleteById(id);
 	}
+
+
+	public List<BlogItem> filterByCategory(String name) {
+		return blogRepo.findAllByCategory(name);
+	}
 	
 }

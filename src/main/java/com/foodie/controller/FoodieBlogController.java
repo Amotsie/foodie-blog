@@ -88,6 +88,18 @@ public class FoodieBlogController {
 		return mv;
 	}
 	
+	/**
+	 * filters Blog posts by Category
+	 * @param catName: Category Name
+	 * @return List of Blog Items in the mentioned category
+	 */
+	@GetMapping("/category/{name}")
+	public ModelAndView	filterPostsById(@PathVariable("name") String catName) {
+		ModelAndView mv = new ModelAndView("welcome-page");
+		mv.addObject("blogs", service.filterByCategory(catName));
+		return mv;
+	}
+	
 	/*
 	 * Displays the results page of the new entry.
 	 * if the there is no validation errors the Result page is loaded, else returned back to add blog post.

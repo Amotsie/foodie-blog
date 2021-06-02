@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="javatime" uri="http://sargue.net/jsptags/time" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,13 @@
 		<div class="container">
 			<nav>
 				<p>Foodie</p>
-				<a href="/create"><button>+New Post</button></a>
+				<a href="/create"><button><spring:message code="button.new" /></button></a>
+				<p><a href="?language=sw_TZ">Swahili</a> | <a href="?language=en">English</a></p>
 			</nav>
+			<div class="hero">
+				<h2><spring:message code="hero.title" /></h2>
+				<p><spring:message code="hero.slogan" /></p>
+			</div>
 		</div>
 	</header>
 	
@@ -27,11 +33,11 @@
 		<aside class="side-menu">
 			<table>
 				<tr>
-					<th>Categories</th>
-				<tr><td><a href="#">Starter</a></td></tr>
-				<tr><td><a href="#">Main</a></td></tr>
-				<tr><td><a href="#">Desert</a></td></tr>
-				<tr><td><a href="#">Other</a></td></tr>	
+					<th><spring:message code="main.aside.categories" /></th>
+				<tr><td><a href="/category/starter"><spring:message code="main.aside.starter" /></a></td></tr>
+				<tr><td><a href="/category/main"><spring:message code="main.aside.main" /></a></td></tr>
+				<tr><td><a href="/category/dessert"><spring:message code="main.aside.dessert" /></a></td></tr>
+				<tr><td><a href="/category/other"><spring:message code="main.aside.other" /></a></td></tr>	
 			</table>
 		</aside>
 		<section class="post-container">
@@ -43,7 +49,7 @@
 					<article class="post-card">
 						<div class="top">
 							<h4>${b.title}</h4>
-							<a href="/delete/${b.id}">Delete</a> <a href="/edit/${b.id}">Edit</a>
+							<a href="/delete/${b.id}"><spring:message code="button.delete" /></a> <a href="/edit/${b.id}"><spring:message code="button.edit" /></a>
 						</div>
 						<div class="middle">
 							<p>${b.body}</p>
@@ -53,13 +59,13 @@
 							<c:forEach items="${b.tags}" var="item" varStatus="i">									
 								<span class="tags"><i>#${item}</i></span>	
 							</c:forEach>
-							<a href="/details/${b.id}">Read More</a>
+							<a href="/details/${b.id}"><spring:message code="button.readmore" /></a>
 						</div>
 					</article>
 				</c:forEach>
 		</c:when>
 		<c:otherwise>
-			<h2>No Blog available, click on top right to add new.</h2>
+			<h2><spring:message code="main.nodata" /></h2>
 		</c:otherwise>
 	</c:choose>
 			

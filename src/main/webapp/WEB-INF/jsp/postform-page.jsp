@@ -36,9 +36,10 @@
 				<td>Category:</td>
 				<td><form:select path="category">
 						<form:option value="" label="-- Please Select --" />
-						<form:option value="Stater" label="Stater" />
-						<form:option value="Main Course" label="Main Course" />
-						<form:option value="Dessert" label="Dessert" />
+						<form:option value="stater" label="Stater" />
+						<form:option value="main" label="Main Course" />
+						<form:option value="dessert" label="Dessert" />
+						<form:option value="other" label="Other" />
 					</form:select>
 				</td>
 				<td style="width:500px"><form:errors path="category" cssClass="error" /></td>
