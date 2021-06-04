@@ -19,7 +19,7 @@
 			<nav>
 				<p class="logo">F<span class="changeolor">oo</span>die</p>
 				<a  href="/create"><button class="alignright btnradius btncolor"><spring:message code="button.new" /></button></a>
-				<p><a href="?language=sw_TZ" class="lang">Swahili</a> | <a href="?language=en" class="lang">English</a></p>
+				<p><a href="?language=sw_TZ" class="lang"><img src="/img/Tanzania.ico" width="50"></a> <a href="?language=en" class="lang"><img src="/img/UK.ico" width="50"></a></p>
 			</nav>
 			<div class="hero header">
 				<h2 class="slogan"><spring:message code="hero.title" /></h2>

@@ -17,7 +17,7 @@ insert into blog values (2,
 --insert into blog values ( 3,
 --					'Thai beef salad',
 --					'This aromatic Asian salad combines lemony-flavoured coriander leaves with cool cucumber, refreshing mint and rare beef.',
---					'Main course',
+--					'starter',
 --					650,
 --					DATE'2021-05-08',
 --					ARRAY['snack','lunch','healthy']);

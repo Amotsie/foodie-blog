@@ -14,13 +14,10 @@ public class FoodieService {
 	@Autowired
 	BlogRepository blogRepo;
 	
-	
 	//Create
 	public void createPost(BlogItem post) {
 		blogRepo.save(post);
 	}
-	
-	
 	//Read
 	public List<BlogItem> findAllPosts(){
 		return blogRepo.findAll();
@@ -29,18 +26,15 @@ public class FoodieService {
 	public BlogItem findPostByID(long id) {
 		return blogRepo.getOne(id);
 	}
-	
 	//Update
 	public void updatePost(BlogItem post) {
 		blogRepo.save(post);
 	}
-	
 	//Delete
 	public void deletePost(long id) {
 		blogRepo.deleteById(id);
 	}
-
-
+	//Filter
 	public List<BlogItem> filterByCategory(String name) {
 		return blogRepo.findAllByCategory(name);
 	}
