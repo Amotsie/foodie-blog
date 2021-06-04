@@ -3,13 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="javatime" uri="http://sargue.net/jsptags/time" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Confirm Blog Post</title>
+<link rel="stylesheet" href="/css/style.css">
+<title><spring:message code="hero.conpost"/></title>
 </head>
-<body>
+<body class="aligning">
 	<table class="bordered">
 			<tr>
 				<td>Title:</td>
@@ -37,8 +39,8 @@
 				<td>
 				<c:forEach items="${blog.tags}" var="item" varStatus="i">
 					<c:choose>
-						<c:when test="${i.last}">${item}.</c:when>
-						<c:otherwise>${item}, </c:otherwise>
+						<c:when test="${i.last}">#${item}.</c:when>
+						<c:otherwise>#${item}, </c:otherwise>
 					</c:choose>
 				</c:forEach>
 				</td>
@@ -54,7 +56,7 @@
 			<form:hidden path="category" value="${blog.category}"/>
 			<form:hidden path="tags" value="${blog.tags}"/>
 
-			<input type="submit" value="Confirm">
+			<input type="submit" value="Confirm" class="lang">
 		</form:form>
 		
 		<form:form method="post" action="/backtoedit" modelAttribute="blog">
@@ -64,7 +66,7 @@
 			<form:hidden path="calories" value="${blog.calories}"/>
 			<form:hidden path="category" value="${blog.category}"/>
 			<form:hidden path="tags" value="${blog.tags}"/>
-			<input type="submit" value="Back to Edit">
+			<input type="submit" value="Back to Edit" class=" btncolor">
 		</form:form>
 		
 </body>

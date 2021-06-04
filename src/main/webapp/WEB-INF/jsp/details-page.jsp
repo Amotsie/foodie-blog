@@ -2,11 +2,12 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="javatime" uri="http://sargue.net/jsptags/time" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Details</title>
+<title><spring:message code="hero.details"/></title>
 </head>
 <body>
 <javatime:format value="${blog.publishdate}" pattern="dd-MM-yyyy" var="formattedDate"/>
@@ -18,6 +19,6 @@
 	</c:forEach>
 	<i>${formattedDate}</i>
 	<hr>
-	<a href="/home"><button>Back</button></a>
+	<a href="/home"><button><spring:message code="button:back"/></button></a>
 </body>
 </html>

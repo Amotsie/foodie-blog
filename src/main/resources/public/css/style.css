@@ -1,10 +1,13 @@
 html{
 	margin-left: 20px;
-	background-color: #e9eee3;
+	background: linear-gradient(to bottom, #c1b78f 100%, #d9d4bf 100%);
 	font-family: 'Trebuchet MS', sans-serif;
-	font-size: 20px;	
+	font-size: 20px;
+	height:100%;	
 }
-
+body{
+	height:100%;
+}
 h1, h2, h3, h4, h5, h6{
 	color: #4c9599;
 }
@@ -21,16 +24,93 @@ th{
 	color: #ffffff;
 	padding: 7px;
 }
+nav{
+	border:1px;
+	background-color:#f0f1d6;
+	margin:2px;
+}
+.header{
+	border:1px;
+	background-color:#e9eabc;
+	margin:2px;
+}
 
-.bordered td{
-	border: 1px solid #000000;
+.aligning{
+	flex-direction:column;
+	display:flex;
+	justify-content: center;
 }
 
 input, select {
 	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 16px;	
 }
-
+.lang:hover{
+	border:1px solid green;
+	color:white;
+	background-color:green;
+}
+.logo{
+	font-size: 30px;
+	font-weight:bold;
+	text-shadow: 2px 2px 5px blue;
+}
+.slogan{
+	text-align:center;
+	font-weight: bold;
+}
 .error{
 	color: #ff0000;
+}
+.btncolor{
+	border-color: blue;
+}
+.btncolor:hover{
+	background-color:blue;
+	color:white;
+	font-weight:bold;
+}
+.delete{
+	color:red;
+}
+.delete1{
+	color:red;
+	margin-left:222px;
+}
+.alignright{
+	float: right;
+}
+.con{
+	border:1px solid green;
+	margin-bottom: 2px;
+}
+.con:hover{
+	border:4px solid #a4d8f4;
+	margin-bottom: 2px;
+}
+.tags{
+	color:blue;
+	}
+.changeolor{
+	color:#d17502;
+}
+.btnradius{
+	border-radius: 5px;
+	border:1px;
+	box-shadow: 0 2px 4px 0 #4fb3e8, 0 6px 5px 0 #a4d8f4;
+}
+.lang:hover{
+	box-shadow: 0 2px 4px 0 #4fb3e8, 0 6px 5px 0 #a4d8f4;
+	color:white;
+	background-color:#4fb3e8;
+}
+.btnradius:hover{
+	box-shadow: 0 2px 4px 0 #4fb3e8, 0 6px 5px 0 #27a3e6;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }

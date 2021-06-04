@@ -15,15 +15,15 @@
 
 	<!-- Navigation Bar-->
 	<header>
-		<div class="container">
+		<div class="container1">
 			<nav>
-				<p>Foodie</p>
-				<a href="/create"><button><spring:message code="button.new" /></button></a>
-				<p><a href="?language=sw_TZ">Swahili</a> | <a href="?language=en">English</a></p>
+				<p class="logo">F<span class="changeolor">oo</span>die</p>
+				<a  href="/create"><button class="alignright btnradius btncolor"><spring:message code="button.new" /></button></a>
+				<p><a href="?language=sw_TZ" class="lang">Swahili</a> | <a href="?language=en" class="lang">English</a></p>
 			</nav>
-			<div class="hero">
-				<h2><spring:message code="hero.title" /></h2>
-				<p><spring:message code="hero.slogan" /></p>
+			<div class="hero header">
+				<h2 class="slogan"><spring:message code="hero.title" /></h2>
+				<p class="slogan"><spring:message code="hero.slogan" /></p>
 			</div>
 		</div>
 	</header>
@@ -34,10 +34,10 @@
 			<table>
 				<tr>
 					<th><spring:message code="main.aside.categories" /></th>
-				<tr><td><a href="/category/starter"><spring:message code="main.aside.starter" /></a></td></tr>
-				<tr><td><a href="/category/main"><spring:message code="main.aside.main" /></a></td></tr>
-				<tr><td><a href="/category/dessert"><spring:message code="main.aside.dessert" /></a></td></tr>
-				<tr><td><a href="/category/other"><spring:message code="main.aside.other" /></a></td></tr>	
+				<tr><td><a href="/category/starter" class="lang"><spring:message code="main.aside.starter" /></a></td></tr>
+				<tr><td><a href="/category/main"class="lang"><spring:message code="main.aside.main" /></a></td></tr>
+				<tr><td><a href="/category/dessert" class="lang"><spring:message code="main.aside.dessert" /></a></td></tr>
+				<tr><td><a href="/category/other" class="lang"><spring:message code="main.aside.other" /></a></td></tr>	
 			</table>
 		</aside>
 		<section class="post-container">
@@ -46,10 +46,10 @@
 		<c:when test="${fn:length(blogs) > 0}">	
 				<c:forEach items="${blogs}" var="b">
 					<javatime:format value="${b.publishdate}" pattern="dd-MM-yyyy" var="formattedDate"/>
-					<article class="post-card">
+					<article class="post-card con">
 						<div class="top">
 							<h4>${b.title}</h4>
-							<a href="/delete/${b.id}"><spring:message code="button.delete" /></a> <a href="/edit/${b.id}"><spring:message code="button.edit" /></a>
+							<a href="/delete/${b.id}" class="lang delete"><spring:message code="button.delete" /></a> <a href="/edit/${b.id}" class="lang"><spring:message code="button.edit" /></a>
 						</div>
 						<div class="middle">
 							<p>${b.body}</p>
@@ -59,7 +59,7 @@
 							<c:forEach items="${b.tags}" var="item" varStatus="i">									
 								<span class="tags"><i>#${item}</i></span>	
 							</c:forEach>
-							<a href="/details/${b.id}"><spring:message code="button.readmore" /></a>
+							<a href="/details/${b.id}" class="lang"><spring:message code="button.readmore" /></a>
 						</div>
 					</article>
 				</c:forEach>
