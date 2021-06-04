@@ -17,8 +17,9 @@
 	<c:forEach items="${blog.tags}" var="item" varStatus="i">									
 		<span class="tags"><i>#${item}</i></span>	
 	</c:forEach>
-	<i>${formattedDate}</i>
+	<br>
+	Created: <i>${formattedDate}</i>
 	<hr>
-	<a href="/home"><button><spring:message code="button:back"/></button></a>
+	<a href="/home"><button><spring:message code="button.back"/></button></a>
 </body>
 </html>
